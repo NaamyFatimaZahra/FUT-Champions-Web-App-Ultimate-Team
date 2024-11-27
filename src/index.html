@@ -13,42 +13,78 @@
     <header
       class="absolute z-10 h-[6rem] w-[100%] flex justify-around items-center"
     >
-      <div class="logo w-[4rem]">
+      <div class="logo w-[7rem]">
         <img src="./assets/img/logo.png" alt="" />
       </div>
+
       <nav>
-        <ul class="text-white flex gap-6 capitalize">
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]"><a href="">players</a></li>
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]"><a href="">squad builder</a></li>
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]"><a href="">squads</a></li>
+        <ul class="text-white flex gap-[3rem] capitalize">
+          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
+            <a href="">players</a>
+          </li>
+          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
+            <a href="">squad builder</a>
+          </li>
+          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
+            <a href="">squads</a>
+          </li>
         </ul>
       </nav>
-      <div class="relative">
-        <label for="search" class="absolute right-3 top-[50%] translate-y-[-50%]"
-          ><i class="fa-solid fa-magnifying-glass text-white"></i
-        ></label>
-        <input
-          type="text"
-          name="search"
-          id="search"
-          class="outline-none text-white bg-[#4b4a4a9c] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
-        />
-      </div>
     </header>
-    <main class="relative w-[100%] brightness-[45%] min-h-[100vh]">
+    <main class="relative w-[100%] min-h-[100vh]">
+      <!-- Home  -->
       <section
-        class="bg-cover bottom-0 w-[100%] h-[30rem] bg-fixed bg-center bg-[url('./assets/img/background-img.png')]"
-      ></section>
-      <section class="bg-gradient-to-b from-[#060505] to-gray-500 w-[100%] min-h-[100vh]">
-      <div class="w-[50%] m-auto   ">
-<div class=" "><img src="./assets/img/terain-bg.jpg" class="w-[100%] h-[47rem] transform-3d rotate-x-51 rotate-z-43 " alt=""></div>
-      </div>
-      </section>
-      <section id="list_team" class=" w-[100%] min-h-[100vh]">
+        class="bg-cover flex flex-col justify-center items-center gap-[3rem] w-[100%] h-[100vh] bg-center bg-[url('./assets/img/background-img.png')]"
+      >
+        <div class="flex items-center gap-5">
+          <h1 class="text-white text-[3rem] capitalize">
+            buildfut make you team
+            <span class="text-[#e1b65c]">dream</span> real
+          </h1>
 
+          <i
+            class="fa-solid fa-arrow-down text-black bg-white w-[2rem] h-[2rem] rounded-[50%] flex justify-center items-center animate-bounce"
+          ></i>
+        </div>
+        <div class="relative">
+          <label
+            for="search"
+            class="absolute right-3 top-[50%] translate-y-[-50%]"
+            ><i class="fa-solid fa-magnifying-glass text-white"></i
+          ></label>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="outline-none text-white bg-[#686868] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
+          />
+        </div>
       </section>
+      <!-- build squad -->
+      <section class="w-[100%] grid grid-cols-[1fr_30rem] min-h-[100vh]">
+        <!-- image terain -->
+        <div class="">
+          <img src="./assets/img/terain-bg.png" class="w-[100%]" alt="" />
+        </div>
+        <!-- sqaud infos -->
+        <div class="w-[100%] flex justify-center items-center min-h-[30%]">
+          <div
+            class="bg-[#d8d9dd] px-[3rem] py-[3rem]  min-h-[10rem] rounded-md drop-shadow-2xl border-solid border-[#686868] border-[1px]"
+          >
+            <h3 class="capitalize text-[#504b4b]">squad name</h3>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="outline-none text-white bg-[#686868] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- list team -->
+      <section id="list_team" class="w-[100%] min-h-[100vh]"></section>
     </main>
-    <footer class="w-[100%] h-[50vh] flex flex-col  bg-[#19222b] text-white">
+    <footer class="w-[100%] h-[50vh] flex flex-col bg-[#19222b] text-white">
       <div
         class="w-[100%] h-[15%] bg-[#d8d9dd] text-[#19222b] flex justify-around items-center"
       >
@@ -69,7 +105,9 @@
         </ul>
       </div>
       <div class="h-[70%] flex flex-col justify-center items-center">
-        <p class="text-center pb-[1rem] uppercase"><span class="border-b-solid border-b-[2px]">about u</span>s:</p>
+        <p class="text-center pb-[1rem] uppercase">
+          <span class="border-b-solid border-b-[2px]">about u</span>s:
+        </p>
         <p class="text-[.9rem] leading-8 text-justify w-[35%]">
           Our site allows football enthusiasts to easily create and customize
           their ideal teams using real players. With an intuitive interface,
@@ -79,9 +117,11 @@
         </p>
       </div>
 
-      <div class="h-[15%] m-auto  py-4">
-      <p class="text-[.8rem]">© 2014-2024 Copyright BUILDFUT.com All FIFA assets are property of EA
-        Sports.</p>
+      <div class="h-[15%] m-auto py-4">
+        <p class="text-[.8rem]">
+          © 2014-2024 Copyright BUILDFUT.com All FIFA assets are property of EA
+          Sports.
+        </p>
       </div>
     </footer>
   </body>
