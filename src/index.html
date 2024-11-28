@@ -31,6 +31,7 @@
         </ul>
       </nav>
     </header>
+
     <main class="relative w-[100%] min-h-[100vh]">
       <!-- Home  -->
       <section
@@ -38,7 +39,7 @@
       >
         <div class="flex items-center gap-5">
           <h1 class="text-white text-[3rem] capitalize">
-            buildfut make you team
+            buildfut make your team
             <span class="text-[#e1b65c]">dream</span> real
           </h1>
 
@@ -60,30 +61,140 @@
           />
         </div>
       </section>
-      <!-- build squad -->
-      <section class="w-[100%] grid grid-cols-[1fr_30rem] min-h-[100vh]">
+      <!-- principe squad -->
+      <section class="w-[100%] flex min-h-[100vh]">
         <!-- image terain -->
-        <div class="">
-          <img src="./assets/img/terain-bg.png" class="w-[100%]" alt="" />
+        <div class="relative w-[100%] h-[100vh] ">
+          <img
+            src="./assets/img/terrain-bg.svg"
+            class="absolute w-[100%] h-[100%]"
+            alt=""
+          />
+         <div id="list_position_players" class=" grid grid-cols-7 grid-rows-5 h-[100%] w-[80%] m-auto">
+
+         </div>
         </div>
+
         <!-- sqaud infos -->
-        <div class="w-[100%] flex justify-center items-center min-h-[30%]">
-          <div
-            class="bg-[#d8d9dd] px-[3rem] py-[3rem]  min-h-[10rem] rounded-md drop-shadow-2xl border-solid border-[#686868] border-[1px]"
-          >
-            <h3 class="capitalize text-[#504b4b]">squad name</h3>
+        <div
+          class="bg-[#19222b] px-[3rem] py-[3rem] w-[25%] mt-14 mr-6 h-fit rounded-md drop-shadow-2xl flex flex-col gap-5"
+        >
+          <h3 class="capitalize text-[#d8d9dd]">squad name</h3>
+          <div class="relative">
+            <label
+              for="name_sqaud"
+              class="absolute right-3 text-[1.3rem] top-[50%] translate-y-[-50%]"
+            >
+              <i class="fa-solid fa-pen-to-square text-white"></i>
+            </label>
             <input
               type="text"
-              name="search"
-              id="search"
-              class="outline-none text-white bg-[#686868] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
+              name="name_sqaud"
+              id="name_sqaud"
+              class="outline-none text-[#19222b] bg-[#d8d9dd] h-[2.2rem] w-[100%] rounded-md pl-[1rem]"
             />
+          </div>
+          <div class="m-auto">
+            <button
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-3-3
+            </button>
+            <button
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-4-2
+            </button>
+          </div>
+          <button
+            onclick="addNewPlayer()"
+            class="w-fit m-auto bg-[#d8d9dd] text-[#19222b] font-semibold capitalize py-2 px-4 border border-[#d8d9dd] rounded"
+          >
+            add player
+          </button>
+        </div>
+      </section>
+
+      <!-- changement squad -->
+      <section id="list_team" class="w-[100%] h-[100vh]">
+        <!-- player -->
+        <!-- <div class="relative w-fit bg-no-repeat">
+          <img
+            src="./assets/img/card.png"
+            class="w-[10rem] "
+            alt=""
+          />
+          <div
+            class="text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+          >
+            <i class="fa-solid fa-plus text-[1.6rem]"></i>
+          </div>
+          <div
+            class="absolute shadow-2xl  bg-[#555] text-white rounded-[50%] w-fit px-2 py-2 left-[50%]  translate-x-[-50%]"
+          >
+            <p class="uppercase">cm</p>
+          </div> -->
+        </div>
+        <!-- player -->
+        <div class="relative hidden w-fit bg-no-repeat">
+          <img src="./assets/img/bg-card.png" class="" alt="" />
+          <div
+            class="text-white w-[67%] h-[15rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+          >
+            <div
+              class="flex items-center text-[black] justify-center pt-6 pl-[1.3rem]"
+            >
+              <div class="">
+                <p class="">33</p>
+
+                <img class="w-6 h-6" src="./assets/img/logo.png" alt="" />
+              </div>
+              <img
+                src="https://cdn.sofifa.net/players/020/801/25_120.png"
+                alt=""
+              />
+            </div>
+            <!-- infos -->
+            <div class="flex justify-center items-center">
+              <p class="text-center text-black">name</p>
+              <img class="w-4 h-4" src="./assets/img/logo.png" alt="" />
+            </div>
+            <div
+              class="flex flex-wrap justify-center w-[6rem] m-auto gap-x-3 text-[0.6rem]"
+            >
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">pac:</p>
+                <p>93</p>
+              </div>
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">sho:</p>
+                <p>93</p>
+              </div>
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">pas:</p>
+                <p>93</p>
+              </div>
+
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">dri:</p>
+                <p>93</p>
+              </div>
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">def:</p>
+                <p>93</p>
+              </div>
+              <div class="text-[#513608a0] flex gap-1 font-semibold">
+                <p class="uppercase">phy:</p>
+                <p>93</p>
+              </div>
+              <img class="w-6 h-6 mt-4" src="./assets/img/logo.png" alt="" />
+            </div>
           </div>
         </div>
       </section>
-      <!-- list team -->
-      <section id="list_team" class="w-[100%] min-h-[100vh]"></section>
+      1
     </main>
+
     <footer class="w-[100%] h-[50vh] flex flex-col bg-[#19222b] text-white">
       <div
         class="w-[100%] h-[15%] bg-[#d8d9dd] text-[#19222b] flex justify-around items-center"
@@ -124,5 +235,6 @@
         </p>
       </div>
     </footer>
+    <script src="./assets/scripts/index.js"></script>
   </body>
 </html>
