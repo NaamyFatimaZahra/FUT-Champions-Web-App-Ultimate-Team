@@ -3,26 +3,44 @@ const list_reserve_players = document.getElementById("list_reserve_players");
 const container_groupe_player = document.getElementById(
   "container_groupe_player"
 );
-const list_players = document.getElementById("list_players");
+const content_pop_up = document.getElementById("content_pop_up");
 let allPlayers = [];
 let formations = [];
 let playerMembers = [];
+let filterOutputArr = [];
+let count=0;
 //fetch data
 fetch("../DataBase/players.json")
   .then((response) => response.json())
   .then((data) => {
     allPlayers = data.players;
-    console.log(allPlayers);
-
     formations = data.formations;
-    console.log(formations);
-
     displayPlayersEmptyElement(formations);
     displayReserveMembers();
   })
   .catch((error) => {
     console.log(error);
   });
+
+
+//  Element
+
+function choosePopUpElement(id,position) {
+  let vv=id;
+  console.log(vv);
+  
+ return `
+      <i class="fa-solid fa-angles-down text-[green] text-[2rem]" ></i>
+            <p>What would you like to do?</p>
+<div class="flex gap-5 flex-wrap">
+   <button id="addPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
+        Add New Player
+      </button>
+      <button onclick="showExistingPlayer(${vv},'${position}')" id="selectPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
+        Select Existing Player
+      </button>
+</div>`;
+}
 
 function playerCardEmptyElemet(
   id,
@@ -38,7 +56,10 @@ function playerCardEmptyElemet(
   EmptyCard.style.gridRow = row;
   EmptyCard.style.justifySelf = justifySelf;
   EmptyCard.style.alignSelf = alignSelf;
-  EmptyCard.setAttribute("onclick", `showPlayerAdd(${id})`);
+  EmptyCard.setAttribute(
+    "onclick",
+    `fillInPopUp(${id},'${position}')`
+  );
   EmptyCard.setAttribute("id", `${id}`);
   EmptyCard.innerHTML = `
                 <img src="./assets/img/card.png" class="w-[10rem]" alt="" />
@@ -116,6 +137,8 @@ function playerCardFinalElement() {
     `;
 }
 
+// fonction
+
 function displayPlayersEmptyElement(formations) {
   Object.values(formations)[0].forEach((Element) => {
     list_main_players.appendChild(
@@ -138,66 +161,30 @@ function displayReserveMembers() {
   }
 }
 
-function addNewPlayer() {
-  console.log("yep");
+function addNewPlayer() {}
+
+  function fillInPopUp(id, position) {
+    container_groupe_player.style.display = "flex";
+    content_pop_up.innerHTML = choosePopUpElement(id, position);
+  }
+
+// function showExistingPlayer(id, position) {
+// //  filterOutput(id, position);
+//   console.log(id);
+  
+// }
+
+function filterOutput(id,position){
+  
+  allPlayers.filter((el)=>{
+    if (position===el.position) {
+      filterOutputArr.push(el);
+    }else if (id) {
+
+    } 
+  })
 }
-// // afficher les membres qui sont dans le meme groupe
-// function displayMembersGroupe(fonction) {
-//   list_members.innerHTML = "";
-//   allEmployes.filter((el) => {
-//     el.fonction === fonction ? memberShowGroup.push(el) : "";
-//   });
 
-//   memberShowGroup.forEach((el) => {
-//     const list = document.createElement("div");
-//     list.setAttribute(
-//       "class",
-//       "flex gap-[3rem] mb-[1rem] w-[90%] m-auto border-[1px] h-[5rem] px-[1rem] rounded-md  items-center"
-//     );
-//     list.innerHTML = `
-//          <img src="${el.image}" alt="${el.nom}" class=" h-[3rem] w-[3rem]  rounded-[50%]">
-
-//       <div class="w-[80%]">
-//         <h2 class="text-xl font-semibold text-gray-800">${el.nom} ${el.prenom}</h2>
-//         <p class="text-gray-600">${el.fonction}</p>
-//       </div>
-//       <button onclick="addMember('${el.id}','${el.fonction}')" class="bg-[#01008A] text-white capitalize rounded-md px-4 py-1">add</button>
-//      `;
-//     list_members.appendChild(list);
-//   });
-// }
-
-function showPlayerAdd(position, id) {
-  playerMembers = [];
-  container_groupe_player.style.display = "flex";
-//   displayMembersGroupe(position,id);
+function closeListMembers() {
+  container_groupe_player.style.display = "none";
 }
-// function displayMembersPlayers(position,id) {
-//   list_players.innerHTML = "";
-//   allPlayers.filter((el) => {
-//     el.position === position ? playerMembers.push(el) : "";
-//   });
-
-//   playerMembers.forEach((el) => {
-//     const list = document.createElement("div");
-//     list.setAttribute(
-//       "class",
-//       "flex gap-[3rem] mb-[1rem] w-[90%] m-auto border-[1px] h-[5rem] px-[1rem] rounded-md  items-center"
-//     );
-//     list.innerHTML = ` 
-//          <img src="${el.image}" alt="${el.nom}" class=" h-[3rem] w-[3rem]  rounded-[50%]">
-         
-//       <div class="w-[80%]">
-//         <h2 class="text-xl font-semibold text-gray-800">${el.nom} ${el.prenom}</h2>
-//         <p class="text-gray-600">${el.fonction}</p>
-//       </div>
-//       <button onclick="addMember('${el.id}','${el.position}')" class="bg-[#01008A] text-white capitalize rounded-md px-4 py-1">add</button>
-//      `;
-//     list_players.appendChild(list);
-//   });
-// }
-// function closeListMembers() {
-//   memberShowGroup = [];
-//   container_groupe_members.style.display = "none";
-//   header.style.position = "";
-// }

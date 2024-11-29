@@ -590,6 +590,10 @@ video {
   margin: auto;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-\[1rem\] {
   margin-bottom: 1rem;
 }
@@ -683,8 +687,12 @@ video {
   min-height: 100vh;
 }
 
-.min-h-\[60\%\] {
-  min-height: 60%;
+.min-h-\[40\%\] {
+  min-height: 40%;
+}
+
+.min-h-\[fit\] {
+  min-height: fit;
 }
 
 .w-4 {
@@ -723,10 +731,6 @@ video {
   width: 3rem;
 }
 
-.w-\[60\%\] {
-  width: 60%;
-}
-
 .w-\[67\%\] {
   width: 67%;
 }
@@ -758,6 +762,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.min-w-\[40\%\] {
+  min-width: 40%;
 }
 
 .translate-x-\[-50\%\] {
@@ -830,6 +838,10 @@ video {
   gap: 1.25rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-8 {
   gap: 2rem;
 }
@@ -849,6 +861,10 @@ video {
 
 .rounded-\[50\%\] {
   border-radius: 50%;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -915,6 +931,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[green\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 128 0 / var(--tw-bg-opacity, 1));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -945,6 +966,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -970,6 +996,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -978,6 +1009,11 @@ video {
 .py-7 {
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
+}
+
+.py-9 {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
 }
 
 .py-\[3rem\] {
@@ -1050,6 +1086,10 @@ video {
   font-size: 1.6rem;
 }
 
+.text-\[2rem\] {
+  font-size: 2rem;
+}
+
 .text-\[3rem\] {
   font-size: 3rem;
 }
@@ -1103,6 +1143,11 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
+.text-\[green\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 128 0 / var(--tw-text-opacity, 1));
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -1141,6 +1186,11 @@ video {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.hover\:bg-green-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity, 1));
 }
 
 .focus\:border-\[\.01px\]:focus {

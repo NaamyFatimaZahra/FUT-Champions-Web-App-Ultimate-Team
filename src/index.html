@@ -32,8 +32,8 @@
       </nav>
     </header>
 
-    <main class="relative w-[100%] min-h-[100vh] ">
-      <!-- Home  -->
+    <main class="relative w-[100%] min-h-[100vh]">
+      <!-- Home Page  -->
       <section
         class="bg-cover flex flex-col justify-center items-center gap-[3rem] w-[100%] h-[100vh] bg-center bg-[url('./assets/img/background-img.png')]"
       >
@@ -62,7 +62,7 @@
           />
         </div>
       </section>
-      <!-- principe squad -->
+      <!-- principe squad Page -->
       <section class="w-[100%] flex min-h-[100vh] py-7">
         <!-- image terain -->
         <div class="relative w-[100%] h-[100vh]">
@@ -117,20 +117,21 @@
         </div>
       </section>
 
-      <!-- reserve squad -->
+      <!-- reserve squad Page -->
       <section class="w-[100%] h-[fit] py-[5rem]">
         <div
           id="list_reserve_players"
           class="w-[80%] flex flex-wrap gap-8 m-auto"
         ></div>
       </section>
-      <!-- listPlayeers -->
-         <section
+
+      <!-- POP UP-->
+      <section
         id="container_groupe_player"
         class="bg-[#e8e8ffd8] w-full hidden h-[100vh] fixed top-0"
       >
         <div
-          class="relative bg-[#ffffff] w-[60%] m-auto min-h-[60%] rounded-xl"
+          class="relative bg-[#ffffff] min-w-[40%] m-auto min-h-[40%] rounded-xl"
         >
           <button
             onclick="closeListMembers()"
@@ -138,7 +139,12 @@
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <div id="list_players"></div>
+          <div
+            id="content_pop_up"
+            class="flex flex-col justify-center items-center min-h-[fit] gap-6 py-9"
+          >
+       
+          </div>
         </div>
       </section>
     </main>
