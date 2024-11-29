@@ -32,7 +32,7 @@
       </nav>
     </header>
 
-    <main class="relative w-[100%] min-h-[100vh]">
+    <main class="relative w-[100%] min-h-[100vh] ">
       <!-- Home  -->
       <section
         class="bg-cover flex flex-col justify-center items-center gap-[3rem] w-[100%] h-[100vh] bg-center bg-[url('./assets/img/background-img.png')]"
@@ -57,22 +57,24 @@
             type="text"
             name="search"
             id="search"
+            placeholder="search "
             class="outline-none text-white bg-[#686868] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
           />
         </div>
       </section>
       <!-- principe squad -->
-      <section class="w-[100%] flex min-h-[100vh]">
+      <section class="w-[100%] flex min-h-[100vh] py-7">
         <!-- image terain -->
-        <div class="relative w-[100%] h-[100vh] ">
+        <div class="relative w-[100%] h-[100vh]">
           <img
             src="./assets/img/terrain-bg.svg"
             class="absolute w-[100%] h-[100%]"
             alt=""
           />
-         <div id="list_position_players" class=" grid grid-cols-7 grid-rows-5 h-[100%] w-[80%] m-auto">
-
-         </div>
+          <div
+            id="list_main_players"
+            class="grid grid-cols-7 grid-rows-5 h-[100%] w-[80%] m-auto"
+          ></div>
         </div>
 
         <!-- sqaud infos -->
@@ -107,92 +109,38 @@
             </button>
           </div>
           <button
-            onclick="addNewPlayer()"
+            onclick=""
             class="w-fit m-auto bg-[#d8d9dd] text-[#19222b] font-semibold capitalize py-2 px-4 border border-[#d8d9dd] rounded"
           >
-            add player
+            confirm squad
           </button>
         </div>
       </section>
 
-      <!-- changement squad -->
-      <section id="list_team" class="w-[100%] h-[100vh]">
-        <!-- player -->
-        <!-- <div class="relative w-fit bg-no-repeat">
-          <img
-            src="./assets/img/card.png"
-            class="w-[10rem] "
-            alt=""
-          />
-          <div
-            class="text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+      <!-- reserve squad -->
+      <section class="w-[100%] h-[fit] py-[5rem]">
+        <div
+          id="list_reserve_players"
+          class="w-[80%] flex flex-wrap gap-8 m-auto"
+        ></div>
+      </section>
+      <!-- listPlayeers -->
+         <section
+        id="container_groupe_player"
+        class="bg-[#e8e8ffd8] w-full hidden h-[100vh] fixed top-0"
+      >
+        <div
+          class="relative bg-[#ffffff] w-[60%] m-auto min-h-[60%] rounded-xl"
+        >
+          <button
+            onclick="closeListMembers()"
+            class="mb-[1rem] text-[1.4rem] w-[97%] text-end"
           >
-            <i class="fa-solid fa-plus text-[1.6rem]"></i>
-          </div>
-          <div
-            class="absolute shadow-2xl  bg-[#555] text-white rounded-[50%] w-fit px-2 py-2 left-[50%]  translate-x-[-50%]"
-          >
-            <p class="uppercase">cm</p>
-          </div> -->
-        </div>
-        <!-- player -->
-        <div class="relative hidden w-fit bg-no-repeat">
-          <img src="./assets/img/bg-card.png" class="" alt="" />
-          <div
-            class="text-white w-[67%] h-[15rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-          >
-            <div
-              class="flex items-center text-[black] justify-center pt-6 pl-[1.3rem]"
-            >
-              <div class="">
-                <p class="">33</p>
-
-                <img class="w-6 h-6" src="./assets/img/logo.png" alt="" />
-              </div>
-              <img
-                src="https://cdn.sofifa.net/players/020/801/25_120.png"
-                alt=""
-              />
-            </div>
-            <!-- infos -->
-            <div class="flex justify-center items-center">
-              <p class="text-center text-black">name</p>
-              <img class="w-4 h-4" src="./assets/img/logo.png" alt="" />
-            </div>
-            <div
-              class="flex flex-wrap justify-center w-[6rem] m-auto gap-x-3 text-[0.6rem]"
-            >
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">pac:</p>
-                <p>93</p>
-              </div>
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">sho:</p>
-                <p>93</p>
-              </div>
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">pas:</p>
-                <p>93</p>
-              </div>
-
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">dri:</p>
-                <p>93</p>
-              </div>
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">def:</p>
-                <p>93</p>
-              </div>
-              <div class="text-[#513608a0] flex gap-1 font-semibold">
-                <p class="uppercase">phy:</p>
-                <p>93</p>
-              </div>
-              <img class="w-6 h-6 mt-4" src="./assets/img/logo.png" alt="" />
-            </div>
-          </div>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div id="list_players"></div>
         </div>
       </section>
-      1
     </main>
 
     <footer class="w-[100%] h-[50vh] flex flex-col bg-[#19222b] text-white">
