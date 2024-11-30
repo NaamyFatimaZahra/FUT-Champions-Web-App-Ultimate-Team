@@ -8,9 +8,9 @@ let allPlayers = [];
 let formations = [];
 let playerMembers = [];
 let filterOutputArr = [];
-let count=0;
+let count = 0;
 //fetch data
-fetch("../DataBase/players.json")
+fetch("/DataBase/players.json")
   .then((response) => response.json())
   .then((data) => {
     allPlayers = data.players;
@@ -22,21 +22,17 @@ fetch("../DataBase/players.json")
     console.log(error);
   });
 
-
 //  Element
 
-function choosePopUpElement(id,position) {
-  let vv=id;
-  console.log(vv);
-  
- return `
+function choosePopUpElement(id, position) {
+  return `
       <i class="fa-solid fa-angles-down text-[green] text-[2rem]" ></i>
             <p>What would you like to do?</p>
 <div class="flex gap-5 flex-wrap">
    <button id="addPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
         Add New Player
       </button>
-      <button onclick="showExistingPlayer(${vv},'${position}')" id="selectPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
+      <button onclick="showExistingPlayer('${id}','${position}')" id="selectPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
         Select Existing Player
       </button>
 </div>`;
@@ -56,13 +52,10 @@ function playerCardEmptyElemet(
   EmptyCard.style.gridRow = row;
   EmptyCard.style.justifySelf = justifySelf;
   EmptyCard.style.alignSelf = alignSelf;
-  EmptyCard.setAttribute(
-    "onclick",
-    `fillInPopUp(${id},'${position}')`
-  );
+  EmptyCard.setAttribute("onclick", `fillInPopUp('${id}','${position}')`);
   EmptyCard.setAttribute("id", `${id}`);
   EmptyCard.innerHTML = `
-                <img src="./assets/img/card.png" class="w-[10rem]" alt="" />
+                <img src="../assets/img/card.png" class="w-[10rem]" alt="" />
           <div
             class="text-white absolute top-0 flex justify-center items-center cursor-pointer w-[100%] h-[100%]"
           >
@@ -163,26 +156,23 @@ function displayReserveMembers() {
 
 function addNewPlayer() {}
 
-  function fillInPopUp(id, position) {
-    container_groupe_player.style.display = "flex";
-    content_pop_up.innerHTML = choosePopUpElement(id, position);
-  }
+function fillInPopUp(id, position) {
+  container_groupe_player.style.display = "flex";
+  content_pop_up.innerHTML = choosePopUpElement(id, position);
+}
 
-// function showExistingPlayer(id, position) {
-// //  filterOutput(id, position);
-//   console.log(id);
-  
-// }
+function showExistingPlayer(id, position) {
+  filterOutput(id, position);
+}
 
-function filterOutput(id,position){
-  
-  allPlayers.filter((el)=>{
-    if (position===el.position) {
+function filterOutput(id, position) {
+  allPlayers.filter((el) => {
+    if (position === el.position) {
       filterOutputArr.push(el);
-    }else if (id) {
-
-    } 
-  })
+    } else if (position === "undefined") {
+      filterOutputArr.push(el);
+    }
+  });
 }
 
 function closeListMembers() {

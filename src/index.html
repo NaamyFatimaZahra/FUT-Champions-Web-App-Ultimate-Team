@@ -9,186 +9,93 @@
     />
     <link href="./output.css" rel="stylesheet" />
   </head>
-  <body class="relative">
+  <body class="relative w-[100%]">
+    <!-- mobile header -->
     <header
-      class="absolute z-10 h-[6rem] w-[100%] flex justify-around items-center"
+      class="md:bg-transparent md:bottom-[93%] md:left-[60%] absolute py-1 px-6 w-[80%] bottom-4 left-[50%] translate-x-[-50%] rounded-[3rem] bg-[#4f4a4ac6] z-10"
     >
-      <div class="logo w-[7rem]">
-        <img src="./assets/img/logo.png" alt="" />
-      </div>
-
       <nav>
-        <ul class="text-white flex gap-[3rem] capitalize">
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
-            <a href="">players</a>
+        <ul class="text-[#cec3c3] flex justify-between text-[1.6rem] md:hidden">
+          <li>
+            <a href="./index.html"
+              ><i
+                class="fa-solid fa-house px-3 py-3 bg-[#580a21] rounded-[50%]"
+              ></i
+            ></a>
           </li>
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
-            <a href="">squad builder</a>
+          <li>
+            <a href="./pages/squad_builder.html"
+              ><i class="fa-solid fa-futbol"></i
+            ></a>
           </li>
-          <li class="border-b-solid border-b-[2px] pb-[2px] border-b-[#e1b65c]">
-            <a href="">squads</a>
+          <li>
+            <a href="./pages/squads.html"
+              ><i class="fa-solid fa-people-group"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/about.html"
+              ><i class="fa-solid fa-circle-info"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/players_list.html"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></a>
+          </li>
+        </ul>
+        <ul
+          class="uppercase hidden md:flex w-full text-white gap-6 items-center justify-center"
+        >
+          <li><a href="./index.html">home</a></li>
+          <li><a href="./pages/squad_builder.html">squad builder</a></li>
+          <li><a href="./pages/squads.html">squads</a></li>
+          <li><a href="./pages/about.html">about</a></li>
+          <li class="flex items-center relative">
+            <input
+              type="text"
+              class="pl-3 bg-[#7b787892] h-[2.5rem] w-[17rem] rounded-md capitalize outline-none"
+              placeholder="search for player"
+            />
+            <label class="absolute right-4" for=""
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></label>
           </li>
         </ul>
       </nav>
     </header>
 
-    <main class="relative w-[100%] min-h-[100vh]">
-      <!-- Home Page  -->
-      <section
-        class="bg-cover flex flex-col justify-center items-center gap-[3rem] w-[100%] h-[100vh] bg-center bg-[url('./assets/img/background-img.png')]"
-      >
-        <div class="flex items-center gap-5">
-          <h1 class="text-white text-[3rem] capitalize">
-            buildfut make your team
-            <span class="text-[#e1b65c]">dream</span> real
-          </h1>
-
-          <i
-            class="fa-solid fa-arrow-down text-black bg-white w-[2rem] h-[2rem] rounded-[50%] flex justify-center items-center animate-bounce"
-          ></i>
-        </div>
-        <div class="relative">
-          <label
-            for="search"
-            class="absolute right-3 top-[50%] translate-y-[-50%]"
-            ><i class="fa-solid fa-magnifying-glass text-white"></i
-          ></label>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="search "
-            class="outline-none text-white bg-[#686868] h-[2.2rem] w-[16rem] rounded-md pl-[1rem] focus:border-solid focus:border-[.01px] focus:border-[#e1b65c]"
-          />
-        </div>
-      </section>
-      <!-- principe squad Page -->
-      <section class="w-[100%] flex min-h-[100vh] py-7">
-        <!-- image terain -->
-        <div class="relative w-[100%] h-[100vh]">
+    <main>
+      <section class="w-[100%] relative">
+        <video
+          autoplay
+          loop
+          class="h-[100vh] w-[100%] object-cover hidden md:block"
+        >
+          <source src="./assets/img/stad-foot.mp4" type="video/mp4" />
+        </video>
+        <div class="md:hidden">
           <img
-            src="./assets/img/terrain-bg.svg"
-            class="absolute w-[100%] h-[100%]"
+            src="./assets/img/stud-red.svg"
+            class="h-[100vh] w-[100%] object-cover brightness-[50%]"
             alt=""
           />
-          <div
-            id="list_main_players"
-            class="grid grid-cols-7 grid-rows-5 h-[100%] w-[80%] m-auto"
-          ></div>
         </div>
-
-        <!-- sqaud infos -->
         <div
-          class="bg-[#19222b] px-[3rem] py-[3rem] w-[25%] mt-14 mr-6 h-fit rounded-md drop-shadow-2xl flex flex-col gap-5"
+          class="md:bg-[#7c00008a] w-[100%] h-[100vh] absolute top-0 left-0 z-5 flex justify-center items-center"
         >
-          <h3 class="capitalize text-[#d8d9dd]">squad name</h3>
-          <div class="relative">
-            <label
-              for="name_sqaud"
-              class="absolute right-3 text-[1.3rem] top-[50%] translate-y-[-50%]"
-            >
-              <i class="fa-solid fa-pen-to-square text-white"></i>
-            </label>
-            <input
-              type="text"
-              name="name_sqaud"
-              id="name_sqaud"
-              class="outline-none text-[#19222b] bg-[#d8d9dd] h-[2.2rem] w-[100%] rounded-md pl-[1rem]"
-            />
-          </div>
-          <div class="m-auto">
-            <button
-              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
-            >
-              4-3-3
-            </button>
-            <button
-              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
-            >
-              4-4-2
-            </button>
-          </div>
-          <button
-            onclick=""
-            class="w-fit m-auto bg-[#d8d9dd] text-[#19222b] font-semibold capitalize py-2 px-4 border border-[#d8d9dd] rounded"
-          >
-            confirm squad
-          </button>
+          <img
+            src="./assets/img/soccer-red-removebg-preview.png"
+            class="animate-bounce"
+            alt=""
+          />
         </div>
-      </section>
-
-      <!-- reserve squad Page -->
-      <section class="w-[100%] h-[fit] py-[5rem]">
         <div
-          id="list_reserve_players"
-          class="w-[80%] flex flex-wrap gap-8 m-auto"
-        ></div>
-      </section>
-
-      <!-- POP UP-->
-      <section
-        id="container_groupe_player"
-        class="bg-[#e8e8ffd8] w-full hidden h-[100vh] fixed top-0"
-      >
-        <div
-          class="relative bg-[#ffffff] min-w-[40%] m-auto min-h-[40%] rounded-xl"
+          class="text-white uppercase absolute top-[46%] right-[-11rem] rotate-[-90deg] tracking-[.7rem]"
         >
-          <button
-            onclick="closeListMembers()"
-            class="mb-[1rem] text-[1.4rem] w-[97%] text-end"
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-          <div
-            id="content_pop_up"
-            class="flex flex-col justify-center items-center min-h-[fit] gap-6 py-9"
-          >
-       
-          </div>
+          <p class="w-max">make dream come true</p>
         </div>
       </section>
     </main>
-
-    <footer class="w-[100%] h-[50vh] flex flex-col bg-[#19222b] text-white">
-      <div
-        class="w-[100%] h-[15%] bg-[#d8d9dd] text-[#19222b] flex justify-around items-center"
-      >
-        <p class="text-[1.2rem] font-[400]">Contact us on social networks!</p>
-        <ul class="flex gap-4">
-          <li>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="h-[70%] flex flex-col justify-center items-center">
-        <p class="text-center pb-[1rem] uppercase">
-          <span class="border-b-solid border-b-[2px]">about u</span>s:
-        </p>
-        <p class="text-[.9rem] leading-8 text-justify w-[35%]">
-          Our site allows football enthusiasts to easily create and customize
-          their ideal teams using real players. With an intuitive interface,
-          users can experiment with different formations and strategies. Whether
-          you're an amateur player or an expert, our platform helps you optimize
-          your choices and perfect your team.
-        </p>
-      </div>
-
-      <div class="h-[15%] m-auto py-4">
-        <p class="text-[.8rem]">
-          © 2014-2024 Copyright BUILDFUT.com All FIFA assets are property of EA
-          Sports.
-        </p>
-      </div>
-    </footer>
-    <script src="./assets/scripts/index.js"></script>
   </body>
 </html>

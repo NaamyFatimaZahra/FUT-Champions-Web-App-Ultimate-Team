@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link href="../output.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+     <!-- mobile header -->
+    <header
+      class="md:bg-transparent  md:bottom-[93%] md:left-[60%] fixed py-1 px-6 w-[80%] bottom-4 left-[50%] translate-x-[-50%] rounded-[3rem] bg-[#4f4a4ac6] z-10"
+    >
+      <nav>
+        <ul class="text-[#cec3c3] flex justify-between text-[1.6rem] md:hidden">
+          <li>
+            <a href="./index.html"
+              ><i
+                class="fa-solid fa-house px-3 py-3 bg-[#580a21] rounded-[50%]"
+              ></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/squad_builder.html"
+              ><i class="fa-solid fa-futbol"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/squads.html"
+              ><i class="fa-solid fa-people-group"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/about.html"
+              ><i class="fa-solid fa-circle-info"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/players_list.html"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></a>
+          </li>
+        </ul>
+        <ul
+          class="uppercase hidden md:flex w-full text-white gap-6 items-center justify-center"
+        >
+          <li><a href="./index.html">home</a></li>
+          <li><a href="./pages/squad_builder.html">squad builder</a></li>
+          <li><a href="./pages/squads.html">squads</a></li>
+          <li><a href="./pages/about.html">about</a></li>
+          <li class="flex items-center relative">
+            <input
+              type="text"
+              class="pl-3 bg-[#7b787892] h-[2.5rem] w-[17rem] rounded-md capitalize outline-none"
+              placeholder="search for player"
+            />
+            <label class="absolute right-4" for=""
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></label>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main >
+      <!-- principe squad Page -->
+      <section class="w-[100%] bg-black flex flex-wrap h-[100vh]">
+        <!-- image terain -->
+        <div class="relative w-[100%] h-[100vh]">
+          <img
+            src="../assets/img/téléchargement (2).jpg"
+            class="absolute w-[100%] h-full"
+            alt=""
+          />
+          <div
+            id="list_main_players"
+            class="grid grid-cols-7 grid-rows-5 h-[100%] w-[80%] m-auto"
+          ></div>
+        </div>
+
+        <!-- sqaud infos -->
+        <div
+          class="bg-[#19222b] px-[3rem] py-[3rem] w-[25%] mt-14 mr-6 h-fit rounded-md drop-shadow-2xl flex flex-col gap-5"
+        >
+          <h3 class="capitalize text-[#d8d9dd]">squad name</h3>
+          <div class="relative">
+            <label
+              for="name_sqaud"
+              class="absolute right-3 text-[1.3rem] top-[50%] translate-y-[-50%]"
+            >
+              <i class="fa-solid fa-pen-to-square text-white"></i>
+            </label>
+            <input
+              type="text"
+              name="name_sqaud"
+              id="name_sqaud"
+              class="outline-none text-[#19222b] bg-[#d8d9dd] h-[2.2rem] w-[100%] rounded-md pl-[1rem]"
+            />
+          </div>
+          <div class="m-auto">
+            <button
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-3-3
+            </button>
+            <button
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-4-2
+            </button>
+          </div>
+          <button
+            onclick=""
+            class="w-fit m-auto bg-[#d8d9dd] text-[#19222b] font-semibold capitalize py-2 px-4 border border-[#d8d9dd] rounded"
+          >
+            confirm squad
+          </button>
+        </div>
+      </section>
+
+      <!-- reserve squad Page -->
+      <section class="w-[100%] h-[fit] ">
+        <div
+          id="list_reserve_players"
+          class="w-[80%] flex flex-wrap gap-8 m-auto"
+        ></div>
+      </section>
+      <!-- POP UP-->
+      <section
+        id="container_groupe_player"
+        class="bg-[#e8e8ffd8] w-full hidden h-[100vh] fixed top-0"
+      >
+        <div
+          class="relative bg-[#ffffff] min-w-[40%] m-auto min-h-[40%] rounded-xl"
+        >
+          <button
+            onclick="closeListMembers()"
+            class="mb-[1rem] text-[1.4rem] w-[97%] text-end"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div
+            id="content_pop_up"
+            class="flex flex-col justify-center items-center min-h-[fit] gap-6 py-9"
+          ></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+<script src="../assets/scripts/index.js"></script>
