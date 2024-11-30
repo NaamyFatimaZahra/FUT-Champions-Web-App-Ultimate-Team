@@ -4,6 +4,7 @@ const container_groupe_player = document.getElementById(
   "container_groupe_player"
 );
 const content_pop_up = document.getElementById("content_pop_up");
+const sqaud_info = document.getElementById("sqaud_info");
 let allPlayers = [];
 let formations = [];
 let playerMembers = [];
@@ -23,19 +24,28 @@ fetch("/DataBase/players.json")
   });
 
 //  Element
-
+function playerListElement(){
+  
+}
 function choosePopUpElement(id, position) {
   return `
-      <i class="fa-solid fa-angles-down text-[green] text-[2rem]" ></i>
-            <p>What would you like to do?</p>
-<div class="flex gap-5 flex-wrap">
-   <button id="addPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
-        Add New Player
-      </button>
-      <button onclick="showExistingPlayer('${id}','${position}')" id="selectPlayerBtn" class="w-fit py-3 px-3 mb-4 bg-[green] text-white rounded-lg hover:bg-green-400 ">
-        Select Existing Player
-      </button>
-</div>`;
+           
+            <p>Which player do you want to add?</p>
+            <div class="flex gap-5 flex-wrap">
+              <button
+                id="addPlayerBtn"
+                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-lg hover:bg-[#421212bf]"
+              >
+                New
+              </button>
+              <button
+                onclick="showExistingPlayer('${id}','${position}')"
+                id="selectPlayerBtn"
+                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-lg hover:bg-[#421212bf]"
+              >
+                Exist
+              </button>
+            </div>`;
 }
 
 function playerCardEmptyElemet(
@@ -47,15 +57,18 @@ function playerCardEmptyElemet(
   alignSelf
 ) {
   const EmptyCard = document.createElement("div");
-  EmptyCard.setAttribute("class", `relative w-[7rem] h-fit `);
+  EmptyCard.setAttribute("class", `relative w-[5rem] md:w-[7rem] h-fit `);
   EmptyCard.style.gridColumn = column;
   EmptyCard.style.gridRow = row;
   EmptyCard.style.justifySelf = justifySelf;
   EmptyCard.style.alignSelf = alignSelf;
-  EmptyCard.setAttribute("onclick", `fillInPopUp('${id}','${position}')`);
+  EmptyCard.setAttribute(
+    "onclick",
+    `fillInPopUpTochooseTypeOfAddingPlayer('${id}','${position}')`
+  );
   EmptyCard.setAttribute("id", `${id}`);
   EmptyCard.innerHTML = `
-                <img src="../assets/img/card.png" class="w-[10rem]" alt="" />
+                <img src="../assets/img/card.png" class="" alt="" />
           <div
             class="text-white absolute top-0 flex justify-center items-center cursor-pointer w-[100%] h-[100%]"
           >
@@ -156,13 +169,16 @@ function displayReserveMembers() {
 
 function addNewPlayer() {}
 
-function fillInPopUp(id, position) {
+function fillInPopUpTochooseTypeOfAddingPlayer(id, position) {
   container_groupe_player.style.display = "flex";
   content_pop_up.innerHTML = choosePopUpElement(id, position);
 }
 
 function showExistingPlayer(id, position) {
   filterOutput(id, position);
+  console.log(filterOutputArr);
+   container_groupe_player.style.display = "flex";
+  content_pop_up.innerHTML = '';
 }
 
 function filterOutput(id, position) {
@@ -177,4 +193,7 @@ function filterOutput(id, position) {
 
 function closeListMembers() {
   container_groupe_player.style.display = "none";
+}
+function showSquadInfo() {
+  sqaud_info.style.display = "flex";
 }
