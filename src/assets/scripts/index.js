@@ -7,7 +7,8 @@ const content_pop_up = document.getElementById("content_pop_up");
 const sqaud_info = document.getElementById("sqaud_info");
 let allPlayers = [];
 let formations = [];
-let playerMembers = [];
+let principalePlayers = [];
+let reservePlayers=[];
 let filterOutputArr = [];
 let count = 0;
 //fetch data
@@ -15,7 +16,7 @@ fetch("/DataBase/players.json")
   .then((response) => response.json())
   .then((data) => {
     allPlayers = data.players;
-    formations = data.formations;
+    formations = data.formations; 
     displayPlayersEmptyElement(formations);
     displayReserveMembers();
   })
@@ -24,8 +25,14 @@ fetch("/DataBase/players.json")
   });
 
 //  Element
-function playerListElement(){
-  
+function playerListElement(img, name) {
+  return `
+  <div class="w-[8rem] h-[100%]  bg-[white] rounded-xl flex justify-center items-center overflow-hidden">
+<img class="w-[3rem]" src="${img}"/>
+<p class="text-black">${name}</p>
+  </div>
+
+  `;
 }
 function choosePopUpElement(id, position) {
   return `
@@ -34,14 +41,14 @@ function choosePopUpElement(id, position) {
             <div class="flex gap-5 flex-wrap">
               <button
                 id="addPlayerBtn"
-                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-lg hover:bg-[#421212bf]"
+                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-md hover:bg-[#421212bf]"
               >
                 New
               </button>
               <button
                 onclick="showExistingPlayer('${id}','${position}')"
                 id="selectPlayerBtn"
-                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-lg hover:bg-[#421212bf]"
+                class="w-fit py-3 px-3 mb-4 bg-[#70182ebf] uppercase text-white rounded-md hover:bg-[#421212bf]"
               >
                 Exist
               </button>
@@ -56,6 +63,8 @@ function playerCardEmptyElemet(
   justifySelf,
   alignSelf
 ) {
+  console.log(id,position);
+  
   const EmptyCard = document.createElement("div");
   EmptyCard.setAttribute("class", `relative w-[5rem] md:w-[7rem] h-fit `);
   EmptyCard.style.gridColumn = column;
@@ -75,7 +84,7 @@ function playerCardEmptyElemet(
             <i class="fa-solid fa-plus text-[1.6rem]"></i>
           </div>
           <div  
-          id="hey"       
+          id=""       
             class="absolute shadow-xl  bg-[#555] text-white rounded-[50%] w-[3rem] text-center px-2 py-2 left-[50%]  translate-x-[-50%]"
           >
             <p>${position}</p>
@@ -83,64 +92,140 @@ function playerCardEmptyElemet(
           `;
   return EmptyCard;
 }
-function playerCardFinalElement() {
-  return `
-      <div class="relative hidden w-fit bg-no-repeat">
-          <img src="./assets/img/bg-card.png" class="" alt="" />
+function playerCardFinalElement(
+  place,
+  id,
+  position,
+  logo,
+  img,
+  name,
+  flag,
+  pace,
+  shooting,
+  passing,
+  dribbling,
+  defending,
+  physical
+) {
+  const finalCard = document.createElement("div");
+  finalCard.setAttribute(
+    "class",
+    "relative group w-fit h-fit bg-no-repeat overfow-hidden"
+  );
+  finalCard.innerHTML = ` 
+         <div class="absolute top-0   h-[100%] w-[100%] right-0 z-10 hidden group-hover:flex justify-center items-center">
+         <button
+         onclick="addNewPlayer(${id},${place},'${position}')"
+         class="bg-[#70182ee6] capitalize rounded-md px-6 py-2">add</button>
+         </div>
+          <img src="../assets/img/bg-card.png" class="group-hover:brightness-[35%]" alt="" />
           <div
-            class="text-white w-[67%] h-[15rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+            class="text-white group-hover:brightness-[20%] w-[67%] md:h-[15rem] absolute top-[50%] left-[43%] md:left-[50%] translate-x-[-50%] translate-y-[-50%]"
           >
             <div
               class="flex items-center text-[black] justify-center pt-6 pl-[1.3rem]"
             >
               <div class="">
-                <p class="">33</p>
+                <p class="">${position}</p>
 
-                <img class="w-6 h-6" src="./assets/img/logo.png" alt="" />
+                <img class="w-6 " src="${logo}" alt="" />
               </div>
               <img
-                src="https://cdn.sofifa.net/players/020/801/25_120.png"
+                src="${img}"
                 alt=""
               />
             </div>
             <!-- infos -->
             <div class="flex justify-center items-center">
-              <p class="text-center text-black">name</p>
-              <img class="w-4 h-4" src="./assets/img/logo.png" alt="" />
+              <p class="text-center text-black text-[10px]">${name}</p>
+              <img class="w-4 h-4" src="${flag}" alt="" />
             </div>
             <div
-              class="flex flex-wrap justify-center w-[6rem] m-auto gap-x-3 text-[0.6rem]"
+              class="flex flex-wrap justify-center pt-[14px] w-[6rem] m-auto gap-x-3 text-[0.6rem]"
             >
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">pac:</p>
-                <p>93</p>
+                <p>${pace}</p>
               </div>
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">sho:</p>
-                <p>93</p>
+                <p>${shooting}</p>
               </div>
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">pas:</p>
-                <p>93</p>
+                <p>${passing}</p>
               </div>
 
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">dri:</p>
-                <p>93</p>
+                <p>${dribbling}</p>
               </div>
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">def:</p>
-                <p>93</p>
+                <p>${defending}</p>
               </div>
               <div class="text-[#513608a0] flex gap-1 font-semibold">
                 <p class="uppercase">phy:</p>
-                <p>93</p>
+                <p>${physical}</p>
               </div>
-              <img class="w-6 h-6 mt-4" src="./assets/img/logo.png" alt="" />
+              
             </div>
           </div>
-        </div>
-    `;
+       `;
+  return finalCard.outerHTML;
+}
+function hoverChangeElement(id,place,position){
+  const hoverElement = document.createElement("div")
+  hoverElement.setAttribute("class","absolute top-0 h-[100%] w-[100%] left-[81%] z-10 hidden group-hover:flex flex-col")
+     hoverElement.innerHTML = ` <button
+        onclick="deletePlayer(${id},'${place}','${position}')"
+        class="text-[white] bg-[#70182ee6] rounded-[50%] w-[2rem] h-[2rem] "
+      >
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      <button
+        onclick="modifiedPlayer(${id},${place})"
+        class="text-[white] bg-[#70182ee6] rounded-[50%] w-[2rem] h-[2rem]"
+      >
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>`;
+  return hoverElement;
+  
+}
+function deletePlayer(id,place,position){
+ 
+  
+  const deletedElement=document.getElementById(place);
+    let extractedNumbers = place.match(/\d+/g);
+   
+  Object.values(formations)[0].forEach((Element) => {
+    
+   
+    
+  if (Element.id === extractedNumbers[0]) {
+    
+    
+    if (place.startsWith("card")) {
+      deletedElement.replaceWith(
+        playerCardEmptyElemet(
+          `card${extractedNumbers}`,
+          Element.position,
+          Element.column,
+          Element.row,
+          Element.justify,
+          Element.align
+        )
+      );
+    } else if (place.startsWith("empty")) {
+       let emptyElement = playerCardEmptyElemet(place);
+       emptyElement.lastElementChild.remove();
+       deletedElement.replaceWith(emptyElement);
+    }
+  }
+  
+   
+ });
+  
 }
 
 // fonction
@@ -167,7 +252,37 @@ function displayReserveMembers() {
   }
 }
 
-function addNewPlayer() {}
+function addNewPlayer(id, place,position) {
+  const elementPlace = document.getElementById(place);
+  elementPlace.removeAttribute("onclick");
+  elementPlace.removeAttribute("class");
+  elementPlace.setAttribute("class", "relative w-[6rem] md:w-[10rem] h-fit ");
+  closeListMembers(container_groupe_player);
+  allPlayers.filter((el) => {
+    if (el.id === id) {
+      elementPlace.innerHTML = playerCardFinalElement(
+        place,
+        el.id,
+        el.position,
+        el.logo,
+        el.photo,
+        el.name,
+        el.flag,
+        el.pace,
+        el.shooting,
+        el.passing,
+        el.dribbling,
+        el.defending,
+        el.physical
+      );
+      principalePlayers.push(el);
+    }
+  });
+  const changeHoverElement=elementPlace.children[0].children[0];
+ changeHoverElement.replaceWith(hoverChangeElement(id,place,position))
+  
+  
+}
 
 function fillInPopUpTochooseTypeOfAddingPlayer(id, position) {
   container_groupe_player.style.display = "flex";
@@ -176,12 +291,29 @@ function fillInPopUpTochooseTypeOfAddingPlayer(id, position) {
 
 function showExistingPlayer(id, position) {
   filterOutput(id, position);
-  console.log(filterOutputArr);
-   container_groupe_player.style.display = "flex";
-  content_pop_up.innerHTML = '';
+  container_groupe_player.style.display = "flex";
+  content_pop_up.innerHTML = "";
+  filterOutputArr.forEach((el) => {
+    content_pop_up.innerHTML += playerCardFinalElement(
+      `'${id}'`,
+      el.id,
+      el.position,
+      el.logo,
+      el.photo,
+      el.name,
+      el.flag,
+      el.pace,
+      el.shooting,
+      el.passing,
+      el.dribbling,
+      el.defending,
+      el.physical
+    );
+  });
 }
 
 function filterOutput(id, position) {
+  filterOutputArr = [];
   allPlayers.filter((el) => {
     if (position === el.position) {
       filterOutputArr.push(el);
@@ -191,8 +323,8 @@ function filterOutput(id, position) {
   });
 }
 
-function closeListMembers() {
-  container_groupe_player.style.display = "none";
+function closeListMembers(popUp) {
+  popUp.style.display = "none";
 }
 function showSquadInfo() {
   sqaud_info.style.display = "flex";

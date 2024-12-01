@@ -51,6 +51,7 @@
           <li><a href="../index.html">home</a></li>
           <li><a href="../pages/squad_builder.html">squad builder</a></li>
           <li><a href="./pages/squads.html">squads</a></li>
+          <li><a href="./pages/players.html">players</a></li>
           <li><a href="./pages/about.html">about</a></li>
           <li class="flex items-center relative">
             <input
@@ -96,8 +97,14 @@
         <!-- sqaud infos -->
         <div
           id="sqaud_info"
-          class="hidden md:flex md:static md:w-[20%] bg-[#5f4a4a92] absolute w-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] m-auto px-[3rem] py-[3rem] h-fit rounded-md flex-col gap-5"
+          class="hidden md:flex md:static md:w-[20%] bg-[#685f5fe8] md:bg-[#685f5fe8] absolute w-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] m-auto px-[3rem] py-[3rem] h-fit rounded-md flex-col gap-5"
         >
+          <button
+            onclick="closeListMembers(sqaud_info)"
+            class="text-white absolute top-2 right-4"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           <h3 class="capitalize text-[#d8d9dd]">squad name</h3>
           <div class="relative">
             <label
@@ -152,7 +159,7 @@
         class="bg-[#e8e8ff4c] w-full h-[100vh] hidden fixed top-0"
       >
         <div
-          class="relative w-[60%] md:w-[30%] m-auto h-[40%] bg-[#000000b5] rounded-xl overflow-hidden"
+          class="relative w-[80%] md:w-[30%] m-auto md:h-[50%] h-[40%] bg-[#000000b5] rounded-xl overflow-hidden"
         >
           <img
             src="../assets/img/pop_up.jpg"
@@ -160,14 +167,14 @@
             class="absolute w-full z-[-5]"
           />
           <button
-            onclick="closeListMembers()"
-            class="pt-[1rem] pr-[1rem] text-[1.4rem] w-[97%] text-end text-white"
+            onclick="closeListMembers(container_groupe_player)"
+            class="pt-[1rem] pr-[1rem] text-[1.4rem] h-[20%] w-[97%] text-end text-white"
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
           <div
             id="content_pop_up"
-            class="flex flex-col justify-center items-center gap-8 text-white h-[80%]"
+            class="flex flex-col flex-wrap h-[80%] px-7 justify-center items-center gap-8 text-white overflow-scroll no-scrollbar"
           ></div>
         </div>
       </section>
