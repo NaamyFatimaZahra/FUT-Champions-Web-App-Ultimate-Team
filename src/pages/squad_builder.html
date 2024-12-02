@@ -25,7 +25,7 @@
           <li>
             <a href="./pages/squad_builder.html"
               ><i
-                class="fa-solid fa-futbol px-3 py-3 bg-[#580a21] rounded-[50%]"
+                class="fa-solid fa-futbol animate-spin px-3 py-3 bg-[#580a21] rounded-[50%]"
               ></i
             ></a>
           </li>
@@ -50,9 +50,9 @@
         >
           <li><a href="../index.html">home</a></li>
           <li><a href="../pages/squad_builder.html">squad builder</a></li>
-          <li><a href="./pages/squads.html">squads</a></li>
-          <li><a href="./pages/players.html">players</a></li>
-          <li><a href="./pages/about.html">about</a></li>
+          <li><a href="../pages/squads.html">squads</a></li>
+          <li><a href="../pages/players.html">players</a></li>
+          <li><a href="../pages/about.html">about</a></li>
           <li class="flex items-center relative">
             <input
               type="text"
@@ -81,16 +81,11 @@
             class="grid grid-cols-7 min-h-[100vh] py-16 md:py-32 relative grid-rows-5 md:bg-transparent bg-[#5f4a4a92] gap-x-[4%] md:w-[80%] w-[100%] bg-cover bg-no-repeat"
           ></div>
         </div>
-        <!-- button add new player -->
-        <div
-          class="absolute text-white text-[1.6rem] animate-spin top-4 right-6 md:top-6 md:right-12 cursor-pointer"
-        >
-          <i class="fa-solid fa-circle-plus"></i>
-        </div>
+       
         <!-- button show squad info -->
         <div
           onclick="showSquadInfo()"
-          class="absolute md:hidden text-white text-[1.6rem] top-[4rem] right-6 cursor-pointer"
+          class="absolute md:hidden text-white text-[1.6rem] top-[2rem] right-6 cursor-pointer"
         >
           <i class="fa-solid fa-sliders"></i>
         </div>
@@ -101,7 +96,7 @@
         >
           <button
             onclick="closeListMembers(sqaud_info)"
-            class="text-white absolute top-2 right-4"
+            class="text-white absolute top-2 right-4 md:hidden"
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -122,11 +117,13 @@
           </div>
           <div class="m-auto">
             <button
+            onclick='changeFirstFormation(0)'
               class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
             >
               4-3-3
             </button>
             <button
+            onclick='changeSecondFormation(1)'
               class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
             >
               4-4-2
@@ -175,7 +172,9 @@
           <div
             id="content_pop_up"
             class="flex flex-col flex-wrap h-[80%] px-7 justify-center items-center gap-8 text-white overflow-scroll no-scrollbar"
-          ></div>
+          >
+          
+        </div>
         </div>
       </section>
     </main>
