@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link href="../output.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- mobile header -->
+    <header
+      class="md:bg-transparent md:bottom-[93%] md:left-[60%] fixed md:absolute py-1 px-6 w-[80%] bottom-4 left-[50%] translate-x-[-50%] rounded-[3rem] bg-[#4f4a4ac6] z-10"
+    >
+      <nav>
+        <ul
+          class="text-[#cec3c3] flex justify-between text-[1.6rem] md:hidden items-center"
+        >
+          <li>
+            <a href="../index.html"><i class="fa-solid fa-house py-3"></i></a>
+          </li>
+          <li>
+            <a href="./pages/squad_builder.html"
+              ><i
+                class="fa-solid fa-futbol animate-spin px-3 py-3 bg-[#580a21] rounded-[50%]"
+              ></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/squads.html"
+              ><i class="fa-solid fa-people-group py-3"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/about.html"
+              ><i class="fa-solid fa-circle-info py-3"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./pages/players_list.html"
+              ><i class="fa-solid fa-magnifying-glass py-3"></i
+            ></a>
+          </li>
+        </ul>
+        <ul
+          class="uppercase hidden md:flex w-full text-white gap-6 items-center justify-center"
+        >
+          <li><a href="../index.html">home</a></li>
+          <li><a href="../pages/squad_builder.html">squad builder</a></li>
+          <li><a href="../pages/squads.html">squads</a></li>
+          <li><a href="../pages/players.html">players</a></li>
+          <li><a href="../pages/about.html">about</a></li>
+          <li class="flex items-center relative">
+            <input
+              type="text"
+              class="pl-3 bg-[#7b787892] h-[2.5rem] w-[17rem] rounded-md capitalize outline-none"
+              placeholder="search for player"
+            />
+            <label class="absolute right-4" for=""
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></label>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- principe squad Page -->
+      <section class="w-[100%] flex justify-center min-h-[100vh] relative">
+        <!-- image terain -->
+        <div class="relative md:w-[80%] w-[100%] h-full">
+          <img
+            src="../assets/img/stud-red.svg"
+            class="fixed w-[100%] h-[100vh] object-cover z-[-3] md:brightness-[50%]"
+            alt=""
+          />
+          <div
+            id="list_main_players"
+            class="grid grid-cols-7 min-h-[100vh] py-16 md:py-32 relative grid-rows-5 md:bg-transparent bg-[#5f4a4a92] gap-x-[4%] md:w-[80%] w-[100%] bg-cover bg-no-repeat"
+          ></div>
+        </div>
+       
+        <!-- button show squad info -->
+        <div
+          onclick="showSquadInfo()"
+          class="absolute md:hidden text-white text-[1.6rem] top-[2rem] right-6 cursor-pointer"
+        >
+          <i class="fa-solid fa-sliders"></i>
+        </div>
+        <!-- sqaud infos -->
+        <div
+          id="sqaud_info"
+          class="hidden md:flex md:static md:w-[20%] bg-[#685f5fe8] md:bg-[#685f5fe8] absolute w-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] m-auto px-[3rem] py-[3rem] h-fit rounded-md flex-col gap-5"
+        >
+          <button
+          
+            onclick="closeListMembers(sqaud_info)"
+            class="text-white absolute top-2 right-4 md:hidden"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h3 class="capitalize text-[#d8d9dd]">squad name</h3>
+          <div class="relative">
+            <label
+              for="name_sqaud"
+              class="absolute right-3 text-[1.3rem] top-[50%] translate-y-[-50%]"
+            >
+              <i class="fa-solid fa-pen-to-square text-white"></i>
+            </label>
+            <input
+              type="text"
+              name="name_sqaud"
+              id="name_sqaud"
+              class="outline-none text-[#19222b] bg-[#d8d9dd] h-[2.2rem] w-[100%] rounded-md pl-[1rem]"
+            />
+          </div>
+          <div class="m-auto">
+            <button
+            onclick='changeFirstFormation(0)'
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-3-3
+            </button>
+            <button
+            onclick='changeSecondFormation(1)'
+              class="bg-transparent text-[#d8d9dd] font-semibold py-2 px-4 border border-[#d8d9dd] rounded"
+            >
+              4-4-2
+            </button>
+          </div>
+          <button
+            onclick=""
+            class="w-fit m-auto bg-[#d8d9dd] text-[#19222b] font-semibold capitalize py-2 px-4 border border-[#d8d9dd] rounded"
+          >
+            confirm squad
+          </button>
+        </div>
+      </section>
+
+      <!-- reserve squad Page -->
+      <section
+        class="w-[100%] min-h-[100vh] flex flex-col gap-16 justify-center bg-[#5f4a4a92]"
+      >
+        <p class="text-white text-center capitalize text-[2rem]">
+          reserve Players
+        </p>
+        <div
+          id="list_reserve_players"
+          class="w-[100%] flex flex-wrap gap-8 justify-center"
+        ></div>
+      </section>
+      <!-- POP UP-->
+      <section
+        id="container_groupe_player"
+        class="bg-[#e8e8ff4c] w-full h-[100vh] hidden fixed top-0"
+      >
+        <div
+          class="relative w-[80%] md:w-[30%] m-auto md:h-[50%] h-[40%] bg-[#000000b5] rounded-xl overflow-hidden"
+        >
+          <img
+            src="../assets/img/pop_up.jpg"
+            alt=""
+            class="absolute w-full z-[-5]"
+          />
+          <button
+            onclick="closeListMembers(container_groupe_player)"
+            class="pt-[1rem] pr-[1rem] text-[1.4rem] h-[20%] w-[97%] text-end text-white"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div
+            id="content_pop_up"
+            class="flex flex-col flex-wrap h-[80%] px-7 justify-center items-center gap-8 text-white overflow-scroll no-scrollbar"
+          >
+          
+        </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+<script src="../assets/scripts/index.js"></script>

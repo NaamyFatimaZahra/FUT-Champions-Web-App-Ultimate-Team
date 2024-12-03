@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link href="../output.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- POP UP-->
+    <section
+      id="container_groupe_player"
+      class="bg-[#e8e8ff4c] w-full h-[100vh] flex fixed top-0"
+    >
+      <div
+        class="relative w-[80%] md:w-[30%] m-auto md:h-[50%] h-[70%] bg-[#000000b5] rounded-xl overflow-hidden"
+      >
+        <img
+          src="../assets/img/pop_up.jpg"
+          alt=""
+          class="absolute w-full z-[-5]"
+        />
+        <button
+          onclick="closeListMembers(container_groupe_player)"
+          class="pt-[1rem] pr-[1rem] text-[1.4rem] h-[10%] w-[97%] text-end text-white"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div
+          id="content_pop_up"
+          class="flex flex-col flex-wrap h-[80%] px-7 justify-center items-center gap-8 text-white"
+        >
+          <!-- form -->
+          <form action="" class="hidden">
+            <!-- name -->
+            <div class="flex flex-col gap-2">
+              <label for="name" class="capitalize text-white">name:</label>
+              <input
+                type="text"
+                class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+              />
+            </div>
+            <!-- photo -->
+            <div class="flex flex-col gap-2">
+              <label for="name" class="capitalize text-white"
+                >picture url:</label
+              >
+              <input
+                type="text"
+                class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+              />
+            </div>
+            <!-- info -->
+            <div class="flex flex-wrap gap-[12%]">
+              <!-- position -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >position:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- nationality -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >nationality:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- club -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white">club:</label>
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- rating -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white">rating:</label>
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- pace -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white">pace:</label>
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+
+              <!-- shooting -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >shooting:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- passing -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white">passing:</label>
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- dribling -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >dribling:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- defending -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >defending:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+              <!-- physical -->
+              <div class="flex flex-col w-[25%] gap-2">
+                <label for="name" class="capitalize text-white"
+                  >physical:</label
+                >
+                <input
+                  type="text"
+                  class="pl-3 bg-[#7b787892] h-[2.5rem] w-[100%] rounded-md capitalize outline-none"
+                />
+              </div>
+
+              <button
+                onclick="formSubmit()"
+                id="addPlayerBtn"
+                class="w-[63%] px-3 h-[2.9rem] mt-[1.5rem] bg-[#70182ebf] uppercase text-white rounded-md hover:bg-[#421212bf]"
+              >
+                submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script src="../assets/scripts/index.js"></script>
