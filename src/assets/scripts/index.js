@@ -16,7 +16,7 @@ let place;
 let isValid = false;
 let modified = false;
 let modifiedPlayerobject;
-let formationCheck=0;
+let formationCheck = 0;
 //fetch data
 fetch("/DataBase/players.json")
   .then((response) => response.json())
@@ -281,8 +281,7 @@ function form() {
 // fonction
 
 function displayPlayersEmptyElement() {
- 
-  list_main_players.innerHTML=''
+  list_main_players.innerHTML = "";
   Object.values(formations)[formationCheck].forEach((Element) => {
     list_main_players.appendChild(
       playerCardEmptyElemet(
@@ -296,13 +295,13 @@ function displayPlayersEmptyElement() {
     );
   });
 }
-function changeFirstFormation(formation){
-formationCheck=formation;
-displayPlayersEmptyElement();
+function changeFirstFormation(formation) {
+  formationCheck = formation;
+  displayPlayersEmptyElement();
 }
-function changeSecondFormation(formation){
-formationCheck=formation;
-displayPlayersEmptyElement();
+function changeSecondFormation(formation) {
+  formationCheck = formation;
+  displayPlayersEmptyElement();
 }
 
 function displayReserveMembers() {
@@ -316,7 +315,7 @@ function displayReserveMembers() {
 function addNewPlayer(id, place, position) {
   if (modified) {
     id = modifiedPlayerobject;
-    console.log(id);
+    modified = false;
   }
   const elementPlace = document.getElementById(place);
   elementPlace.removeAttribute("onclick");
@@ -550,6 +549,7 @@ function formSubmit(event) {
 
   if (modified) {
     closeListMembers(container_groupe_player);
+    modified = false;
     addNewPlayer(modifiedPlayerobject, place, position);
   } else {
     const name = document.getElementById("name").value;
@@ -714,7 +714,7 @@ function modifiedPlayer(id, places) {
         if (document.getElementById(`${key}`) === null) {
         } else {
           document.getElementById(`${key}`).value = el[key];
-          
+
           modifiedPlayerobject[key] = el[key];
           place = places;
           if (key === "position") {
